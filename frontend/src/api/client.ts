@@ -14,8 +14,18 @@ import type {
   WorkOrderStatus
 } from '../types';
 
+const getBaseUrl = (): string => {
+  let url = (import.meta.env.VITE_API_URL || '/api').trim();
+  if (!url) return '/api';
+  url = url.replace(/\/+$/, '');
+  if (!url.endsWith('/api') && !url.includes('/api/')) {
+    url = `${url}/api`;
+  }
+  return url;
+};
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api',
+  baseURL: getBaseUrl(),
   headers: {
     'Content-Type': 'application/json'
   }
