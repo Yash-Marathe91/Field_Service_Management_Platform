@@ -1,0 +1,1 @@
+ALTER TABLE part_usages ADD COLUMN IF NOT EXISTS notes TEXT;

@@ -1,0 +1,51 @@
+# Compiled Class files & Binaries
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven build directory
+target/
+**/target/
+.mvn/wrapper/maven-wrapper.jar
+
+# Node.js dependencies & distribution
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+.next/
+
+# Environment Variables & Local Configs
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDEs & Editors
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+.settings/
+.project
+.classpath
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Antigravity / Scratch
+scratch/
