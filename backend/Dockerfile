@@ -7,12 +7,12 @@ RUN mvn dependency:go-offline -B
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Runtime stage
-FROM eclipse-temurin:21-jre-alpine
+# Runtime stage (glibc based for rock-solid TLS 1.3 / SSL compatibility with Supabase pooler)
+FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 
 # Run as non-root user for security
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+RUN useradd -m -u 1000 appuser
 USER appuser
 
 COPY --from=builder /app/target/keystone-1.0.0.jar app.jar
